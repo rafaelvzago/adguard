@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  adguardhome:
+    image: adguard/adguardhome:latest
+    volumes:
+      - adguard-work:/opt/adguardhome/work
+      - adguard-conf:/opt/adguardhome/conf
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 67:67/udp
+      - 68:68/tcp
+      - 68:68/udp
+      - 81:80/tcp
+      - 443:443/tcp
+      - 853:853/tcp
+      - 3000:3000/tcp
+    restart: unless-stopped
+
+volumes:
+  adguard-work:
+  adguard-conf:
